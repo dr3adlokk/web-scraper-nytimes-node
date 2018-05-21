@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+//simple server config
 /**
  * Module dependencies.
  */
@@ -12,8 +12,9 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8083');
 app.set('port', port);
+console.log('Serving app to local host at port ' + port);
 
 /**
  * Create HTTP server.

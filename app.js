@@ -1,9 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require("morgan");
+const cheerio = require("cheerio");
+const $ = cheerio.load('<h2 class="title">Hello world</h2>');
 
+//cheerio init
+
+$("h2.title").text("Hello there!");
+$("h2").addClass("welcome");
+
+$.html();
+
+
+
+//routes using the router function (same thing.)
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
