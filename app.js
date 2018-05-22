@@ -6,16 +6,27 @@ const logger = require("morgan");
 const cheerio = require("cheerio");
 const $ = cheerio.load('<h2 class="title">Hello world</h2>');
 
-//cheerio init
+var app = express();
 
-$("h2.title").text("Hello there!");
-$("h2").addClass("welcome");
+// app.use(express.static('public'));
+app.get('/all', function (req, res) {
+  db.scrapedData.find({}, function (err, found) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(found);
+    }
+  });
+});
 
-$.html();
+
+
+
 
 
 
 //routes using the router function (same thing.)
+var scrapeRouter = require('./routes/web-scrape.js');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
