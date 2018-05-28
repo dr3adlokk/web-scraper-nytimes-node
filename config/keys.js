@@ -1,3 +1,3 @@
 module.exports = {
- mongoURI: 'mongodb://user:user@ds137740.mlab.com:37740/web-scrape'
+ mongoURI: 'mongo ds137720.mlab.com:37720/heroku_253p0qbj -u user -p user'
 }
