@@ -1,12 +1,12 @@
 const express = require('express')
 
 //possibly 
-const router = express.Router();
+const app = express();
 
 //otherwise
 // const app = express();
 
-router.get('/scrape', function(req, res){
+app.get('/scrape', function(req, res){
     request('https://news.ycombinator.com/newest', function (error, response, html){
         var $ = cheerio.load(html);
         $('.title').each(function(i, element){
@@ -36,5 +36,5 @@ router.get('/scrape', function(req, res){
 
 
 
-// module.exports = app
-module.exports = router
+module.exports = app
+// module.exports = router

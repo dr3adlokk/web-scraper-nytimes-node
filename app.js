@@ -9,6 +9,33 @@ const $ = cheerio.load('<h2 class="title">Hello world</h2>');
 
 var app = express();
 
+app.get('/scrape', function (req, res) {
+  request('https://news.ycombinator.com/newest', function (error, response, html) {
+    var $ = cheerio.load(html);
+    $('.title').each(function (i, element) {
+      var title = $(this).children('a').text();
+      var link = $(this).children('a').attr('href');
+      if (title && link) {
+        db.scrapeData.save({
+            title: title,
+            link: link
+          },
+          function (err, saved) {
+            if (err) {
+              console.log(err);
+
+            } else {
+              console.log(saved);
+
+            }
+          });
+      }
+    });
+  });
+  res.send('Scrape Complete');
+
+});
+
 // app.use(express.static('public'));
 app.get('/all', function (req, res) {
   db.scrapedData.find({}, function (err, found) {
@@ -30,9 +57,9 @@ app.get('/all', function (req, res) {
 var scrapeRouter = require('./routes/web-scrape.js');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+const apiRender = require('./public/js/renderArticles');
 var app = express();
-// DB Config
+//remote DB Config
 const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
@@ -40,6 +67,8 @@ mongoose
   .connect(db)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
+
+
 
 
 // view engine setup
