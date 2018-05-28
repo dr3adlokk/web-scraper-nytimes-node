@@ -4,3 +4,5 @@ public/images
 .public/images
 images
 .images
+config/config.json
+config/config.js
