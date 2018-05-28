@@ -1,25 +1,28 @@
 {
-  "name": "mongo-scrape-hw",
+  "name": "hw-correct",
   "version": "1.0.0",
-  "repo": "https://github.com/dr3adlokk/web-scraper-nytimes-node",
-  "main": "./bin/www",
+  "description": "Basic api for rendering json; by means of a web-scrape instead of an AJAX request. I suppose, if your API broke on a demo day...",
+  "main": "server.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "server": "nodemon ./bin/www"
+    "start": "node ./server.js",
+    "server": "nodemon ./server.js"
   },
-  "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "express-handlebars": "^3.0.0",
-    "hbs": "^4.0.1",
-    "http-errors": "~1.6.2",
-    "mongoose": "^5.1.2"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dr3adlokk/web-scraper-nytimes-node"
   },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "cross-env": "^5.1.6",
     "morgan": "^1.9.0",
     "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^5.1.2",
+    "request": "^2.87.0"
   }
 }
