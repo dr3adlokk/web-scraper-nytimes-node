@@ -8,6 +8,15 @@ const cheerio = require("cheerio");
 const $ = cheerio.load('<h2 class="title">Hello world</h2>');
 
 var app = express();
+// DB Config
+const db = require('./config/keys').mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect(db)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
+
 
 app.get('/scrape', function (req, res) {
   request('https://news.ycombinator.com/newest', function (error, response, html) {
