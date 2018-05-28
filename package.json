@@ -1,9 +1,11 @@
 {
   "name": "mongo-scrape-hw",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "repo": "https://github.com/dr3adlokk/web-scraper-nytimes-node",
+  "main": "./bin/www",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "server": "nodemon ./bin/www"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
@@ -12,7 +14,11 @@
     "express": "~4.16.0",
     "express-handlebars": "^3.0.0",
     "http-errors": "~1.6.2",
-    "mongoose": "^5.1.2",
-    "morgan": "~.9.0"
+    "mongoose": "^5.1.2"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.6",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5"
   }
 }
